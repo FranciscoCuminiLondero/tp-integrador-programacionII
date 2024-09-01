@@ -113,6 +113,30 @@ header {
   justify-content: end;
   padding-bottom: 2rem;
 }
+
+/* SECTION HISTORICO */
+.seccion-historico {
+  background-color: var(--gris-claro);
+  border-radius: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.titulo-historico {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.grafico {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.grafico img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
 /* Footer - Pie de Página */
 .pie-pagina {
   height: 200px;
