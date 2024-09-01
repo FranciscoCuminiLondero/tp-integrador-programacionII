@@ -9,7 +9,7 @@
   --gris-claro: #d9d9d9;
   --text-color: #333;
   --text-secondary-color: #555;
-  --text-third-color: #E5E4E2;
+  --text-third-color: #e5e4e2;
 }
 /* General */
 body {
@@ -90,7 +90,6 @@ header {
   height: 200px;
   font-size: 1.2rem;
   text-align: start;
-
 }
 
 .precio {
@@ -98,22 +97,22 @@ header {
   font-weight: 700;
 }
 
-.tipo-moneda{
+.tipo-moneda {
   font-weight: 800;
 }
 
-.tipo-precio{
+.tipo-precio {
   font-size: 1rem;
 }
 
-.seccion-monedas{
+.seccion-monedas {
   background-color: var(--gris-claro);
   border-radius: 1rem;
   padding-bottom: 3.5rem;
   margin-top: 7rem;
 }
 
-.titulos-1{
+.titulos-1 {
   display: flex;
   justify-content: end;
   padding-bottom: 1rem;
