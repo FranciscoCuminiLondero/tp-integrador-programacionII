@@ -6,8 +6,10 @@
 }
 :root {
   --background-color: #f5f5f5;
+  --gris-claro: #d9d9d9;
   --text-color: #333;
   --text-secondary-color: #555;
+  --text-third-color: #E5E4E2;
 }
 /* General */
 body {
@@ -18,7 +20,7 @@ body {
 
 .contenedor {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 1em auto;
   padding: 20px;
 }
 
@@ -27,6 +29,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: var(--gris-claro);
+  border-radius: 50px;
 }
 
 .menu {
@@ -48,9 +52,72 @@ header {
 }
 
 .menu a:hover {
-  color: #555;
+  color: var(--text-color);
 }
 
+/* Section Dolar */
+.titulos {
+  display: flex;
+  justify-content: space-between;
+}
+.contenedor-tarjetas {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+  background: var(--gris-claro);
+  border-radius: 25px;
+  width: 200px;
+  height: 200px;
+}
+
+.tarjeta-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5em;
+  background: var(--text-third-color);
+  border-radius: 25px;
+  width: 200px;
+  height: 200px;
+  font-size: 1.2rem;
+  text-align: start;
+
+}
+
+.precio {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.tipo-moneda{
+  font-weight: 800;
+}
+
+.tipo-precio{
+  font-size: 1rem;
+}
+
+.seccion-monedas{
+  background-color: var(--gris-claro);
+  border-radius: 1rem;
+  padding-bottom: 3.5rem;
+  margin-top: 7rem;
+}
+
+.titulos-1{
+  display: flex;
+  justify-content: end;
+  padding-bottom: 1rem;
+}
 /* Footer - Pie de Página */
 .pie-pagina {
   height: 200px;
@@ -72,7 +139,7 @@ header {
 }
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .menu {
     flex-direction: row;
   }
