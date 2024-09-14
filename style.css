@@ -24,6 +24,15 @@ body {
     color: var(--text-color);
 }
 
+body.dark{
+    --background-color: black;
+    --gris-claro: #d9d9d9;
+    --gris-muy-claro: #e5e4e2;
+    --text-color: #333;
+    --text-secondary-color: #555;
+    --gris-oscuro: #1e1e1e;
+}
+
 .contenedor {
     max-width: 1200px;
     margin: 1em auto;
@@ -43,10 +52,55 @@ header {
     border-radius: 50px;
 }
 
+#boton-activo{
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    background-color: aqua;
+    color: black;
+    font-size: 26px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+#boton-activo.fa-moon{
+    animation-duration: 2s;  
+    animation-name: rotation; 
+    -webkit-animation-duration: 2s;  
+    -webkit-animation-name: rotation;
+}
+
+#boton-activo.fa-sun{
+    animation-duration: 2s;  
+    animation-name: rotation; 
+    -webkit-animation-duration: 2s;  
+    -webkit-animation-name: rotation;
+}
+
+@-webkit-keyframes rotation {
+    0% {
+       -webkit-transform: rotate(0deg);
+    }
+    100% {
+       -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes rotation {
+        0% {
+           transform: rotate(0deg)
+        }
+        100% {
+           transform: rotate(360deg)
+        }
+}
+
 .menu {
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     text-align: center;
+    margin: 10px;
 }
 
 .menu li {
@@ -59,6 +113,7 @@ header {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--text-color);
+    padding: 2rem;
 }
 
 .menu a:hover {
@@ -197,6 +252,57 @@ header {
     padding: 1em;
 }
 
+
+/*Pagina Historico*/
+.historico{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 30px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(5, 1fr); 
+    gap: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.grid h1{
+    grid-column: 1/6;
+}
+
+.grid-tit{
+    grid-column: 1/4;
+    grid-row: 2/4;
+}
+
+.grid-may-cot-1{
+    grid-column: 4/6;
+    grid-row: 2/3;
+}
+
+.grid-may-cot-2{
+    grid-column: 4/6;
+    grid-row: 3/4;
+}
+
+.grid-may-pro{
+    grid-column: 1/3;
+    grid-row: 4/5;
+}
+
+.grid-p-pro{
+    grid-column: 1/3;
+    grid-row: 5/6;
+}
+
+.grid-img{
+    grid-column: 3/6;
+    grid-row: 4/6;
+}
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
 
