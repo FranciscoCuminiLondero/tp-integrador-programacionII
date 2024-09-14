@@ -268,10 +268,14 @@ header {
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 10px;
+    max-width: 1200px;
+    margin: 1em auto;
+    padding: 20px;
 }
 
-.grid h1{
+.grid h2{
     grid-column: 1/6;
+    text-align: center;
 }
 
 .grid-tit{
@@ -279,29 +283,71 @@ header {
     grid-row: 2/4;
 }
 
+.grid-tit img{
+    width: 100%;
+    padding: 15px;
+    border-radius: 2rem;
+}
+
 .grid-may-cot-1{
     grid-column: 4/6;
     grid-row: 2/3;
+    border-radius: 2rem;
+    background-color: var(--background-color);
+    width: 80%;
+    font-size: 25px;
+    text-align: center;
+    margin-right:15%;
 }
 
 .grid-may-cot-2{
     grid-column: 4/6;
     grid-row: 3/4;
+    border-radius: 2rem;
+    background-color: var(--background-color);
+    width: 80%;
+    font-size: 25px;
+    text-align: center;
+    margin-right:15%;
 }
 
 .grid-may-pro{
     grid-column: 1/3;
     grid-row: 4/5;
+    border-radius: 2rem;
+    background-color: var(--background-color);
+    width: 80%;
+    font-size: 25px;
+    text-align: center;
+    margin-left:15%;
 }
 
 .grid-p-pro{
     grid-column: 1/3;
     grid-row: 5/6;
+    border-radius: 2rem;
+    background-color: var(--background-color);
+    width: 80%;
+    font-size: 25px;
+    text-align: center;
+    margin-left:15%;
 }
 
 .grid-img{
     grid-column: 3/6;
     grid-row: 4/6;
+}
+
+.grid-img img{
+    width: 80%;
+    height: 80%;
+    margin-top: 10px;
+    margin-left: 40px;
+    border-radius: 2rem;
+}
+
+.grid-img h3{
+    margin-left: 40px;
 }
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
