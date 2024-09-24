@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 /* reset */
 
 * {
@@ -9,19 +10,26 @@
 /* TEMA CLARO */
 :root {
   --background-color: #f5f5f5;
+  --color-principal: #1a73e8;
+  --color-secundario: #1e1e1e;
+  --color-gris: #d9d9d9;
+
+  --texto-color: #1e1e1e;
+  --texto-color-secundario: #fff;
+
   --gris-muy-claro: #e5e4e2;
-  --gris-claro: #d9d9d9;
   --gris-oscuro: #1e1e1e;
-  --text-color: #333;
+  --text-color: #1e1e1e;
   --text-secondary-color: #555;
   --sombra-cajas: 0px 5px 5px rgba(0, 0, 0, 0.25);
+  --sombra-texto: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
 /* General */
 
 body {
   background: var(--background-color);
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 
@@ -41,6 +49,12 @@ body.dark {
   padding: 20px;
 }
 
+.contenedor-full {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+}
+
 /* Header - Encabezado*/
 
 header {
@@ -49,7 +63,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--gris-claro);
+  background: var(--color-principal);
   border-radius: 50px;
   box-shadow: var(--sombra-cajas);
 }
@@ -62,7 +76,7 @@ nav {
   height: 60px;
   width: 60px;
   line-height: 60px;
-  color: var(--gris-oscuro);
+  color: var(--texto-color-secundario);
   font-size: 1.5em;
   cursor: pointer;
   text-align: center;
@@ -82,7 +96,7 @@ nav {
 #boton-activo.fa-sun:hover {
   transition: transform 2s;
   transform: rotate(360deg);
-  color: var(--text-secondary-color);
+  color: var(--texto-color);
 }
 
 /* Regla para navegadores más antiguos */
@@ -121,12 +135,12 @@ nav {
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-color);
+  color: var(--texto-color-secundario);
   padding: 2rem;
 }
 
 .menu a:hover {
-  color: var(--text-secondary-color);
+  color: var(--texto-color);
 }
 
 /* SECTION DOLAR */
@@ -134,6 +148,19 @@ nav {
   display: flex;
   justify-content: space-between;
   margin-block: 2rem;
+  color: var(--color-principal);
+}
+
+.titulo {
+  font-size: 1.75em;
+  font-weight: 700;
+  text-shadow: var(--sombra-texto);
+}
+
+.subtitulo {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .contenedor-tarjetas {
@@ -149,68 +176,100 @@ nav {
   justify-content: center;
   align-items: start;
   padding: 1.5em;
-  background-color: var(--gris-claro);
+  background-color: var(--color-gris);
   border-radius: 25px;
   width: 200px;
   height: 200px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   box-shadow: var(--sombra-cajas);
-}
-
-.tarjeta-gris {
-  background-color: var(--gris-muy-claro);
-}
-
-.precio {
-  font-size: 1.7rem;
-  font-weight: 700;
 }
 
 .tipo-moneda {
   font-weight: 800;
+  padding-bottom: 0.5em;
+}
+
+.precio {
+  font-size: 1.75em;
+  font-weight: 700;
 }
 
 .tipo-precio {
   font-size: 1rem;
+  opacity: 75%;
 }
 
+/* SECTION MONEDAS */
 .seccion-monedas {
-  background-color: var(--gris-claro);
-  border-radius: 1rem;
-  padding: 3rem;
-  margin-top: 7rem;
+  background-color: var(--color-principal);
+  border-radius: 50px;
+  padding: 3em;
+}
+.seccion-monedas .precio,
+.seccion-monedas .subtitulo {
+  color: var(--color-principal);
 }
 
-.titulos-1 {
-  display: flex;
-  justify-content: end;
+.titulo.alternativo {
+  text-align: end;
   padding-bottom: 2rem;
+  color: var(--texto-color-secundario);
+}
+
+.tarjeta-otra {
+  background-color: var(--background-color);
 }
 
 /* SECTION HISTORICO */
 .seccion-historico {
-  background-color: var(--gris-claro);
-  border-radius: 1rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  background: linear-gradient(71deg, #1a73e8 43.1%, #0e4182 100%);
+  border-radius: 50px 50px 0px 0px;
 }
 
 .titulo-historico {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+  color: var(--texto-color-secundario);
+  text-align: center;
+  margin-bottom: 2em;
 }
 
-.grafico {
+.contenedor-grafico {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 1em;
 }
 
-.grafico img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
+.contenedor-grafico .subtitulo {
+  text-shadow: var(--sombra-texto);
+  color: var(--texto-color-secundario);
+  font-size: 1em;
+}
+
+.contenedor-grafico img {
+  max-width: 1000px;
+  border-radius: 50px;
+  border: 3px solid white;
+  box-shadow: var(--sombra-cajas);
+}
+
+.boton {
+  border-radius: 50px;
+  border: 3px solid;
+  padding: 20px 30px;
+  color: var(--color-principal);
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.boton:hover {
+  box-sizing: border-box;
+  border: 3px solid var(--background-color);
+  color: var(--texto-color-secundario);
+  background-color: var(--color-principal);
 }
 
 /* Footer - Pie de Página */
@@ -222,8 +281,7 @@ nav {
   align-items: center;
   text-align: center;
   color: var(--text-secondary-color);
-  background-color: var(--gris-oscuro);
-  border-radius: 50px 50px 0px 0px;
+  background: linear-gradient(71deg, #1a73e8 64.09%, #0e4182 128.18%);
 }
 
 .integrantes-utn {
@@ -242,11 +300,11 @@ nav {
 
 .pie-pagina a {
   text-decoration: none;
-  color: var(--gris-claro);
+  color: var(--texto-color-secundario);
 }
 
 .pie-pagina a:hover {
-  color: #fff;
+  color: var(--texto-color);
 }
 
 .pie-pagina img {
