@@ -1,30 +1,30 @@
-let boton = document.getElementById("boton-activo");
+let boton = document.getElementById("boton-cambio-modo");
 let body = document.body;
-let darkMode = localStorage.getItem("dark-mode");
+let modoOscuro = localStorage.getItem("dark-mode");
 
-function enableDarkMode() {
+function habilitarModoOscuro() {
   boton.classList.replace("fa-moon", "fa-sun");
   body.classList.add("dark");
   localStorage.setItem("dark-mode", "enabled");
 }
 
-function disableDarkMode() {
+function deshabilitarModoOscuro() {
   boton.classList.replace("fa-sun", "fa-moon");
   body.classList.remove("dark");
   localStorage.setItem("dark-mode", "disabled");
 }
 
-if (darkMode === "enabled") {
-  enableDarkMode();
+if (modoOscuro === "enabled") {
+  habilitarModoOscuro();
 } else {
-  disableDarkMode();
+  deshabilitarModoOscuro();
 }
 
 boton.onclick = (e) => {
-  let darkMode = localStorage.getItem("dark-mode");
-  if (darkMode === "disabled") {
-    enableDarkMode();
+  let modoOscuro = localStorage.getItem("dark-mode");
+  if (modoOscuro === "disabled") {
+    habilitarModoOscuro();
   } else {
-    disableDarkMode();
+    deshabilitarModoOscuro();
   }
 };

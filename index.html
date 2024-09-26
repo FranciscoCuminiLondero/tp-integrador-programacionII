@@ -24,7 +24,7 @@
                 <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
             <div>
-                <i id="boton-activo" class="fa-solid fa-moon"></i>
+                <i id="boton-cambio-modo" class="fa-solid fa-moon"></i>
             </div>
         </nav>
     </header>
@@ -35,65 +35,16 @@
         <!-- SECTION DOLAR -->
         <section class="contenedor seccion-dolar">
             <div class="titulos">
-                <h2 class="titulo">jue, 29 de agosto, 10:09am</h2>
+                <div>
+                    <p class="texto">Última actualización:</p>
+                    <h2 id="fecha" class="titulo"></h2>
+
+                </div>
                 <h3 class="titulo">DOLAR</h3>
             </div>
-            <div class="contenedor-tarjetas">
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
-                </div>
-                <div class="tarjeta">
-                    <h5 class="subtitulo tipo-moneda">Dólar Oficial</h5>
-                    <p class="tipo-precio">Compra</p>
-                    <p class="precio">$929,5</p>
-                    <p class="tipo-precio">Venta</p>
-                    <p class="precio">$969,5</p>
+            <div id="contenedor-tarjetas">
+                <div class="tarjeta icono_dolar">
+                    <i class="fa-solid fa-dollar-sign"></i>
                 </div>
             </div>
         </section>
@@ -184,6 +135,8 @@
     </footer>
     <!-- FIN FOOTER -->
     <script src="./dark.light.js"></script>
+    <script src="./src/commons.js"></script>
+    <script src="./src/tarjetas.js"></script>
 </body>
 
 </html>

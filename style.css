@@ -66,13 +66,14 @@ header {
   background: var(--color-principal);
   border-radius: 50px;
   box-shadow: var(--sombra-cajas);
+  z-index: 100;
 }
 
 nav {
   display: flex;
 }
 
-#boton-activo {
+#boton-cambio-modo {
   height: 60px;
   width: 60px;
   line-height: 60px;
@@ -84,16 +85,16 @@ nav {
   left: 10em;
 }
 
-#boton-activo.fa-moon,
-#boton-activo.fa-sun {
+#boton-cambio-modo.fa-moon,
+#boton-cambio-modo.fa-sun {
   animation-duration: 2s;
   animation-name: rotation;
   -webkit-animation-duration: 2s;
   -webkit-animation-name: rotation;
 }
 
-#boton-activo.fa-moon:hover,
-#boton-activo.fa-sun:hover {
+#boton-cambio-modo.fa-moon:hover,
+#boton-cambio-modo.fa-sun:hover {
   transition: transform 2s;
   transform: rotate(360deg);
   color: var(--texto-color);
@@ -146,6 +147,7 @@ nav {
 /* SECTION DOLAR */
 .titulos {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-block: 2rem;
   color: var(--color-principal);
@@ -163,11 +165,25 @@ nav {
   text-transform: uppercase;
 }
 
-.contenedor-tarjetas {
+.texto {
+  color: var(--text-secondary-color);
+  opacity: 0.75;
+}
+
+#contenedor-tarjetas {
   display: grid;
   justify-items: center;
+  justify-content: center;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2em;
+}
+
+.icono_dolar {
+  align-items: center !important;
+}
+
+.icono_dolar i {
+  font-size: 5rem;
 }
 
 .tarjeta {
@@ -200,6 +216,14 @@ nav {
 }
 
 /* SECTION MONEDAS */
+
+.contenedor-tarjetas {
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+}
 .seccion-monedas {
   background-color: var(--color-principal);
   border-radius: 50px;
