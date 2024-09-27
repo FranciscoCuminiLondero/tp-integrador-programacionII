@@ -145,6 +145,14 @@ nav {
 }
 
 /* SECTION DOLAR */
+
+
+#icono-peso {
+    position: absolute;
+    z-index: 1000;
+    transition: transform 0.5s ease;
+}
+
 .titulos {
   display: flex;
   align-items: center;
@@ -455,3 +463,43 @@ nav {
   }
 }
 */
+
+/* PAGINA CONTACTO*/
+
+.contenedor-formulario {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.form-item {
+    margin-bottom: 15px;
+    
+}
+.form-item label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-item input,
+.form-item textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-item button {
+    padding: 10px 15px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-item button:hover {
+    background-color: #e40a19; /* Cambia el color del botón al hacer hover */
+}
