@@ -225,7 +225,7 @@ nav {
 
 /* SECTION MONEDAS */
 
-.contenedor-tarjetas {
+#contenedor-tarjetas-otras {
   display: grid;
   justify-items: center;
   justify-content: center;
