@@ -223,6 +223,18 @@ nav {
   opacity: 75%;
 }
 
+.tarjeta {
+  transition: transform 3s;
+  transform-style: preserve-3d;
+}
+
+.tarjeta:hover {
+  transform: rotateY(360deg);
+  background-color: #ece14f9f;
+}
+
+
+
 /* SECTION MONEDAS */
 
 #contenedor-tarjetas-otras {
@@ -365,7 +377,11 @@ nav {
   max-width: 1200px;
   margin: 1em auto;
   padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 
 .grid h2 {
   grid-column: 1/6;
@@ -443,6 +459,7 @@ nav {
 .grid-img h3 {
   margin-left: 40px;
 }
+
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
 
