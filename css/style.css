@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 /* reset */
 
 * {
@@ -29,7 +29,7 @@
 
 body {
   background: var(--background-color);
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text-color);
 }
 
@@ -146,11 +146,10 @@ nav {
 
 /* SECTION DOLAR */
 
-
 #icono-peso {
-    position: absolute;
-    z-index: 1000;
-    transition: transform 0.5s ease;
+  position: absolute;
+  z-index: 1000;
+  transition: transform 0.5s ease;
 }
 
 .titulos {
@@ -225,15 +224,13 @@ nav {
 
 .tarjeta {
   transition: transform 3s;
-  transform-style: preserve-3d;
 }
 
 .tarjeta:hover {
   transform: rotateY(360deg);
-  background-color: #ece14f9f;
+  background-color: #1a73e87f;
+  cursor: pointer;
 }
-
-
 
 /* SECTION MONEDAS */
 
@@ -262,6 +259,11 @@ nav {
 
 .tarjeta-otra {
   background-color: var(--background-color);
+}
+
+.tarjeta-otra:hover {
+  background-color: var(--background-color);
+  cursor: pointer;
 }
 
 /* SECTION HISTORICO */
@@ -298,11 +300,13 @@ nav {
 }
 
 .boton {
+  text-decoration: none;
   border-radius: 50px;
   border: 3px solid;
   padding: 20px 30px;
   color: var(--color-principal);
-  font-family: "Inter", sans-serif;
+  background: var(--background-color);
+  font-family: 'Inter', sans-serif;
   font-weight: 800;
   font-size: 16px;
   text-transform: uppercase;
@@ -359,33 +363,41 @@ nav {
   padding: 1em;
 }
 
-/*Pagina Historico*/
+/*
+------
+PÁGINA HISTÓRICO
+------
+*/
+
 .historico {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 30px;
+  font-size: 3.5em;
+  font-weight: 700;
+  text-shadow: var(--sombra-texto);
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  gap: 20px;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+  grid-template-rows: auto, repeat(4, 1fr);
+  gap: 1em;
+  background-color: var(--color-principal);
+  border-radius: 50px;
   max-width: 1200px;
   margin: 1em auto;
-  padding: 20px;
+  padding: 3em;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-
 .grid h2 {
   grid-column: 1/6;
   text-align: center;
+  text-shadow: var(--sombra-texto);
+  font-size: 2em;
+  margin-block: 1em;
+  font-weight: 800;
+  color: var(--background-color);
 }
 
 .grid-tit {
@@ -393,73 +405,91 @@ nav {
   grid-row: 2/4;
 }
 
+.grid-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+  box-shadow: var(--sombra-cajas);
+  background-color: var(--background-color);
+  border-radius: 25px;
+}
+
+.grid-card .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.grid-card .price-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-card .price-icon i {
+  font-size: 1.5em;
+  text-shadow: var(--sombra-texto);
+}
+
+.grid-card .title {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--color-secundario);
+  text-align: start;
+}
+
+.grid-card .date {
+  color: var(--text-secondary-color);
+}
+
+.grid-card .precio {
+  font-size: 1.5em;
+  font-weight: 800;
+  text-shadow: var(--sombra-texto);
+}
+.grid-tit h4 {
+  font-weight: 800;
+  text-align: start;
+  text-shadow: var(--sombra-texto);
+  padding: 1em;
+}
+
 .grid-tit img {
   width: 100%;
-  padding: 15px;
-  border-radius: 2rem;
+  border-radius: 50px;
+  box-shadow: var(--sombra-cajas);
 }
 
 .grid-may-cot-1 {
   grid-column: 4/6;
   grid-row: 2/3;
-  border-radius: 2rem;
-  background-color: var(--background-color);
-  width: 80%;
   font-size: 25px;
-  text-align: center;
-  margin-right: 15%;
 }
 
 .grid-may-cot-2 {
   grid-column: 4/6;
   grid-row: 3/4;
-  border-radius: 2rem;
-  background-color: var(--background-color);
-  width: 80%;
   font-size: 25px;
-  text-align: center;
-  margin-right: 15%;
 }
 
 .grid-may-pro {
   grid-column: 1/3;
   grid-row: 4/5;
-  border-radius: 2rem;
-  background-color: var(--background-color);
-  width: 80%;
   font-size: 25px;
-  text-align: center;
-  margin-left: 15%;
 }
 
 .grid-p-pro {
   grid-column: 1/3;
   grid-row: 5/6;
-  border-radius: 2rem;
-  background-color: var(--background-color);
-  width: 80%;
   font-size: 25px;
-  text-align: center;
-  margin-left: 15%;
 }
 
-.grid-img {
-  grid-column: 3/6;
-  grid-row: 4/6;
+.grafico {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 1em;
 }
-
-.grid-img img {
-  width: 80%;
-  height: 80%;
-  margin-top: 10px;
-  margin-left: 40px;
-  border-radius: 2rem;
-}
-
-.grid-img h3 {
-  margin-left: 40px;
-}
-
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
 
@@ -481,42 +511,45 @@ nav {
 }
 */
 
-/* PAGINA CONTACTO*/
+/*
+------
+PÁGINA CONTACTO
+------
+*/
 
 .contenedor-formulario {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    margin-bottom: 25px;
-    margin-top: 25px;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-bottom: 25px;
+  margin-top: 25px;
 }
 .form-item {
-    margin-bottom: 15px;
-    
+  margin-bottom: 15px;
 }
 .form-item label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 .form-item input,
 .form-item textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 .form-item button {
-    padding: 10px 15px;
-    background-color: var(--color-principal);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px 15px;
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .form-item button:hover {
-    background-color: #e40a19; /* Cambia el color del botón al hacer hover */
+  background-color: #e40a19; /* Cambia el color del botón al hacer hover */
 }

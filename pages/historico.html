@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Historico de Precios</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Histórico</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 </head>
 
 <body>
@@ -30,71 +29,104 @@
     <!-- FIN HEADER -->
 
     <main>
-        <h1 class="historico">HISTORICO</h1>
+        <div class="contenedor">
+            <h1 class="historico">HISTORICO</h1>
+        </div>
+        <!-- Inicio Grid Section Dolar -->
         <section class="grid">
-            <h2>DOLAR</h2>
+            <h2>DOLAR OFICIAL</h2>
             <div class="grid-tit">
-                <h4>Dolar Oficial</h4>
-                <img src="../images/historico.png" alt="historico">
+                <canvas id="myChart" class="grafico" style="width:100%;max-width:1200px"></canvas>
             </div>
-            <div class="grid-may-cot-1">
-                <h5>Mayor Cotizacion Mes</h5>
-                <p>vir, 6 de septiembre</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-cot-1">
+                <div class="header">
+                    <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
+                    <p class="date">vir, 6 de septiembre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </div>
             </div>
-            <div class="grid-may-cot-2">
-                <h5>Menor Cotizacion Mes</h5>
-                <p>vir, 6 de septiembre</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-cot-2">
+                <div class="header">
+                    <h5 class="title">Menor Cotizacion Mes - Compra</h5>
+                    <p class="date">lun, 23 de septimebre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$829,5</p>
+                    <i class="fa-solid fa-thumbs-down"></i>
+                </div>
             </div>
-            <div class="grid-may-pro">
-                <h5>Mejor promedio</h5>
-                <p>Marzo</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-pro">
+                <div class="header">
+                    <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
+                    <p class="date">vir, 6 de septiembre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </div>
             </div>
-            <div class="grid-p-pro">
-                <h5>Peor promedio</h5>
-                <p>Febrero</p>
-                <p>$929,5</p>
-                <img src="" alt="">
-            </div>
-            <div class="grid-img">
-                <h3>Histograma</h3>
-                <img src="../images/codigo-barras.jpg" alt="">
+            <div class="grid-card grid-p-pro">
+                <div class="header">
+                    <h5 class="title">Menor Cotizacion Mes - Venta</h5>
+                    <p class="date">vir, 6 de septiembre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-down"></i>
+                </div>
             </div>
         </section>
+        <!-- Fin Grid Section Dolar -->
+
+        <!-- Inicio Grid Section Otras Monedas -->
         <section class="grid">
             <h2>OTRAS MONEDAS</h2>
             <div class="grid-tit">
                 <h4>Peso Uruguayo</h4>
                 <img src="../images/historico.png" alt="historico">
             </div>
-            <div class="grid-may-cot-1">
-                <h5>Mayor Cotizacion Mes</h5>
-                <p>vir, 6 de septiembre</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-cot-1">
+                <div class="header">
+                    <h5 class="title">Mayor Cotizacion Mes</h5>
+                    <p class="date">vir, 6 de septiembre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </div>
             </div>
-            <div class="grid-may-cot-2">
-                <h5>Menor Cotizacion Mes</h5>
-                <p>vir, 6 de septiembre</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-cot-2">
+                <div class="header">
+                    <h5 class="title">Menor Cotizacion Mes</h5>
+                    <p class="date">lun, 23 de septimebre</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$829,5</p>
+                    <i class="fa-solid fa-thumbs-down"></i>
+                </div>
             </div>
-            <div class="grid-may-pro">
-                <h5>Mejor promedio</h5>
-                <p>Marzo</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-may-pro">
+                <div class="header">
+                    <h5 class="title">Mejor promedio</h5>
+                    <p class="date">Marzo</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </div>
             </div>
-            <div class="grid-p-pro">
-                <h5>Peor promedio</h5>
-                <p>Febrero</p>
-                <p>$929,5</p>
-                <img src="" alt="">
+            <div class="grid-card grid-p-pro">
+                <div class="header">
+                    <h5 class="title">Peor promedio</h5>
+                    <p class="date">Febrero</p>
+                </div>
+                <div class="price-icon">
+                    <p class="precio">$929,5</p>
+                    <i class="fa-solid fa-thumbs-down"></i>
+                </div>
             </div>
             <div class="grid-img">
                 <h3>Histograma</h3>
@@ -102,6 +134,11 @@
             </div>
         </section>
     </main>
+    <!-- Fin Grid Section Otras Monedas -->
+
+    <section class="pruebas">
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="pie-pagina">
@@ -134,7 +171,11 @@
         </div>
     </footer>
     <!-- FIN FOOTER -->
-    <script src="../dark.light.js"></script>
+    <script src="../src/dark.light.js"></script>
+    <script src="../src/historic.js"></script>
+    <script src="https://kit.fontawesome.com/c28b568b4f.js" crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
