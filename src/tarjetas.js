@@ -1,10 +1,10 @@
-fetch("https://dolarapi.com/v1/dolares")
+fetch('https://dolarapi.com/v1/dolares')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
       const dolar = data[i];
       let tarjeta = crearTarjeta(dolar);
-      const contenedorTarjetas = document.getElementById("contenedor-tarjetas");
+      const contenedorTarjetas = document.getElementById('contenedor-tarjetas');
       contenedorTarjetas.appendChild(tarjeta);
     }
   })
@@ -12,50 +12,45 @@ fetch("https://dolarapi.com/v1/dolares")
     console.error(error);
   });
 
-fetch("https://dolarapi.com/v1/cotizaciones")
+fetch('https://dolarapi.com/v1/cotizaciones')
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
-    
     for (let i = 1; i < data.length; i++) {
       const dolar = data[i];
       let tarjeta = crearTarjeta(dolar);
-      tarjeta.classList.add("tarjeta-otra")
-      const contenedorTarjetas = document.getElementById("contenedor-tarjetas-otras");
+      tarjeta.classList.add('tarjeta-otra');
+      const contenedorTarjetas = document.getElementById('contenedor-tarjetas-otras');
       contenedorTarjetas.appendChild(tarjeta);
     }
-    
   })
   .catch((error) => {
     console.error(error);
-  })
+  });
 
 function crearTarjeta(dolar) {
-  const tarjeta = document.createElement("div");
-  tarjeta.classList.add("tarjeta");
+  const tarjeta = document.createElement('div');
+  tarjeta.classList.add('tarjeta');
 
-  const subtitulo = document.createElement("h5");
-  subtitulo.classList.add("subtitulo", "tipo-moneda");
+  const subtitulo = document.createElement('h5');
+  subtitulo.classList.add('subtitulo', 'tipo-moneda');
   subtitulo.innerText = dolar.nombre;
 
-  const tipoCompra = document.createElement("p");
-  tipoCompra.classList.add("tipo-precio");
-  tipoCompra.innerText = "Compra";
+  const tipoCompra = document.createElement('p');
+  tipoCompra.classList.add('tipo-precio');
+  tipoCompra.innerText = 'Compra';
 
-  const valorCompra = document.createElement("p");
-  valorCompra.id = `compra-${dolar.nombre
-    .toLowerCase()
-    .replace(/\s/g, "-")}`;
-  valorCompra.classList.add("precio");
+  const valorCompra = document.createElement('p');
+  valorCompra.id = `compra-${dolar.nombre.toLowerCase().replace(/\s/g, '-')}`;
+  valorCompra.classList.add('precio');
   valorCompra.innerText = `$${dolar.compra.toFixed(2)}`;
 
-  const tipoVenta = document.createElement("p");
-  tipoVenta.classList.add("tipo-precio");
-  tipoVenta.innerText = "Venta";
+  const tipoVenta = document.createElement('p');
+  tipoVenta.classList.add('tipo-precio');
+  tipoVenta.innerText = 'Venta';
 
-  const valorVenta = document.createElement("p");
-  valorVenta.id = `venta-${dolar.nombre.toLowerCase().replace(/\s/g, "-")}`;
-  valorVenta.classList.add("precio");
+  const valorVenta = document.createElement('p');
+  valorVenta.id = `venta-${dolar.nombre.toLowerCase().replace(/\s/g, '-')}`;
+  valorVenta.classList.add('precio');
   valorVenta.innerText = `$${dolar.venta.toFixed(2)}`;
 
   tarjeta.appendChild(subtitulo);
