@@ -1,4 +1,5 @@
-fetch('https://dolarapi.com/v1/dolares')
+// fetch('https://dolarapi.com/v1/dolares')
+fetch('http://127.0.0.1:5000/dolares')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 0; i < data.length; i++) {
