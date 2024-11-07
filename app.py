@@ -3,16 +3,18 @@ from flask_cors import CORS
 import requests
 
 class Dolar:
-    def __init__(self, nombre, compra, venta):
+    def __init__(self, nombre, compra, venta, fechaActualizacion):
         self.nombre = nombre
         self.compra = compra
         self.venta = venta
+        self.fechaActualizacion = fechaActualizacion
 
     def to_dict(self):
         return {
             "nombre": self.nombre,
             "compra": self.compra,
-            "venta": self.venta
+            "venta": self.venta,
+            "fechaActualizacion": self.fechaActualizacion,
         }
 
 app = Flask(__name__)
@@ -41,7 +43,7 @@ def get_dolares():
 
         data = response.json()
 
-        dolares = [Dolar(dolar["nombre"], dolar["compra"], dolar["venta"]) for dolar in data]
+        dolares = [Dolar(dolar["nombre"], dolar["compra"], dolar["venta"], dolar["fechaActualizacion"]) for dolar in data]
 
     
         return jsonify([dolar.to_dict() for dolar in dolares])
