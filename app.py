@@ -2,6 +2,19 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
 
+class Dolar:
+    def __init__(self, nombre, compra, venta):
+        self.nombre = nombre
+        self.compra = compra
+        self.venta = venta
+
+    def to_dict(self):
+        return {
+            "nombre": self.nombre,
+            "compra": self.compra,
+            "venta": self.venta
+        }
+
 app = Flask(__name__)
 CORS(app)
 
@@ -28,7 +41,10 @@ def get_dolares():
 
         data = response.json()
 
-        return jsonify(data)
+        dolares = [Dolar(dolar["nombre"], dolar["compra"], dolar["venta"]) for dolar in data]
+
+    
+        return jsonify([dolar.to_dict() for dolar in dolares])
 
     except requests.RequestException as e:
 
