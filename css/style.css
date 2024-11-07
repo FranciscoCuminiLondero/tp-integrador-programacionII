@@ -187,6 +187,7 @@ nav {
 
 .icono_dolar {
   align-items: center !important;
+  z-index: 1;
 }
 
 .icono_dolar i {
