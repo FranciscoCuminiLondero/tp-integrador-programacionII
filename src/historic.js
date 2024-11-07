@@ -1,8 +1,6 @@
-fetch('https://api.argentinadatos.com/v1/cotizaciones/dolares')
+fetch('http://127.0.0.1:5000/historico')
   .then((response) => response.json())
   .then((data) => {
-    console.log(data);
-    // Obtener el mes y año actual
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
 
@@ -11,7 +9,6 @@ fetch('https://api.argentinadatos.com/v1/cotizaciones/dolares')
       return itemDate.getMonth() === currentMonth && itemDate.getFullYear() === currentYear;
     });
 
-    // Encontrar la mayor y menor cotización de compra y venta
     const bestCompraItem = currentMonthData.reduce((prev, curr) => (curr.compra < prev.compra ? curr : prev));
     const worstCompraItem = currentMonthData.reduce((prev, curr) => (curr.compra > prev.compra ? curr : prev));
     const bestVentaItem = currentMonthData.reduce((prev, curr) => (curr.venta > prev.venta ? curr : prev));
@@ -28,26 +25,13 @@ fetch('https://api.argentinadatos.com/v1/cotizaciones/dolares')
 
     document.querySelector('.grid-p-pro .date').textContent = formatDate(worstVentaItem.fecha);
     document.querySelector('.grid-p-pro .precio').textContent = `$${worstVentaItem.venta}`;
-  })
-  .catch((error) => console.error('Error al obtener los datos:', error));
 
-// Función para formatear la fecha al estilo 'lun, 23 de septiembre'
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const options = { weekday: 'short', day: 'numeric', month: 'long' };
-  return date.toLocaleDateString('es-ES', options);
-}
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      const options = { weekday: 'short', day: 'numeric', month: 'long' };
+      return date.toLocaleDateString('es-ES', options);
+    }
 
-// Obtener el mes y el año actuales
-const today = new Date();
-const currentMonth = today.getMonth();
-const currentYear = today.getFullYear();
-
-// Hacer fetch a la API
-fetch('https://api.argentinadatos.com/v1/cotizaciones/dolares')
-  .then((response) => response.json())
-  .then((data) => {
-    // Filtrar los datos para obtener solo la moneda "oficial" y del mes actual
     const oficialData = data.filter((item) => {
       const itemDate = new Date(item.fecha);
       return item.casa === 'oficial' && itemDate.getMonth() === currentMonth && itemDate.getFullYear() === currentYear;
@@ -99,4 +83,4 @@ fetch('https://api.argentinadatos.com/v1/cotizaciones/dolares')
       },
     });
   })
-  .catch((error) => console.error('Error fetching data:', error));
+  .catch((error) => console.error('Error al obtener los datos:', error));

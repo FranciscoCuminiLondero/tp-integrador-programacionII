@@ -13,7 +13,7 @@ fetch('http://127.0.0.1:5000/dolares')
     console.error(error);
   });
 
-fetch('https://dolarapi.com/v1/cotizaciones')
+fetch('http://127.0.0.1:5000/cotizaciones')
   .then((response) => response.json())
   .then((data) => {
     for (let i = 1; i < data.length; i++) {
