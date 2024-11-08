@@ -1,22 +1,32 @@
-const form = document.getElementById('formulario-contacto');
+document.getElementById('contacto').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evitar el envío del formulario por defecto
-
-  // Obtener los valores de los campos
   const nombre = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const mensaje = document.getElementById('message').value;
 
-  // Validar los campos (opcional, ya que 'required' ya lo hace)
-  if (nombre === '' || email === '' || mensaje === '') {
-    alert('Por favor, completa todos los campos.');
-    return;
-  }
+  const data = {
+    name: nombre,
+    email: email,
+    message: mensaje,
+  };
 
-  // Mostrar los datos ingresados (puedes hacer otra cosa, como enviar a un servidor)
-  alert(`Nombre: ${nombre}\nCorreo: ${email}\nMensaje: ${mensaje}`);
-
-  // Limpiar el formulario
-  form.reset();
+  fetch('http://localhost:5000/enviar-mensaje', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      if (result.status === 'success') {
+        alert('Mensaje enviado correctamente');
+      } else {
+        alert('Error al enviar el mensaje: ' + result.message);
+      }
+    })
+    .catch((error) => {
+      alert('Ocurrió un error: ' + error);
+    });
 });

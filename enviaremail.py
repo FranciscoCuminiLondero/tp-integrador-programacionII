@@ -1,36 +1,44 @@
+from flask import Flask, request, jsonify
 import requests
-import json                                        
+import json
 
-data = {
-    'service_id': 'service_xxxxxxx',
-    'template_id': 'template_xxxxxxx',
-    'user_id': 'xxxxxxxxxxxxxxxxx',
-    'accessToken': 'xx-xxxx-xxxxxxxxxxxxx',
-    'template_params': {
-        'from_name': 'James',
-        'to_name': 'Seba',
-        'message': 'Este es el mensaje'
+app = Flask(__name__)
+
+@app.route('/enviar-mensaje', methods=['POST'])
+def enviar_mensaje():
+    data = request.json
+    
+    nombre = data.get('name')
+    email = data.get('email')
+    mensaje = data.get('message')
+
+    emailjs_data = {
+        'service_id': 'service_0i1s0w6',
+        'template_id': 'template_bkjb6zi',
+        'user_id': '95lMaor51U6ONt6KR',
+        'accessToken': 'tVHPPWi0n46VkpE4nNPsY',
+        'template_params': {
+            'from_name': nombre,
+            'to_name': 'Francisco, Sabrina y Martin',
+            'message': mensaje
+        }
     }
-}
 
-headers = {
-    'Content-Type': 'application/json',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Origin': 'https://your-website.com',  
-    'Referer': 'https://your-website.com/'
-}
+    headers = {
+        'Content-Type': 'application/json',
+    }
 
-try:
-    response = requests.post(
-        'https://api.emailjs.com/api/v1.0/email/send',
-        data=json.dumps(data),
-        headers=headers
-    )
-    response.raise_for_status()
-    print('Your mail is sent!')
-except requests.exceptions.RequestException as error:
-    print(f'Oops... {error}')
-    if error.response is not None:
-        print(error.response.text)
+    try:
+        response = requests.post(
+            'https://api.emailjs.com/api/v1.0/email/send',
+            data=json.dumps(emailjs_data),
+            headers=headers
+        )
+        response.raise_for_status()
+        return jsonify({'status': 'success', 'message': 'Correo enviado correctamente'}), 200
+    except requests.exceptions.RequestException as error:
+        return jsonify({'status': 'error', 'message': str(error)}), 500
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
