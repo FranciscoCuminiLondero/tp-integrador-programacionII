@@ -501,26 +501,6 @@ PÁGINA HISTÓRICO
   padding: 1em;
 }
 
-/* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
-
-/*
-@media (min-width: 768px) {
-  .menu {
-    flex-direction: row;
-  }
-
-  .pie-pagina {
-    flex-direction: row;
-    text-align: left;
-    gap: 2em;
-  }
-
-  .pie-informacion {
-    text-align: center;
-  }
-}
-*/
-
 /*
 ------
 PÁGINA CONTACTO
@@ -562,4 +542,244 @@ PÁGINA CONTACTO
 
 .form-item button:hover {
   background-color: #e40a19; /* Cambia el color del botón al hacer hover */
+}
+
+/* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
+/*INDEX*/
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    margin: 0.5em 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  #contenedor-tarjetas {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 768px) {
+  #contenedor-tarjetas {
+    grid-template-columns: 1fr; 
+  }
+}
+
+
+@media (max-width: 1024px) {
+  #contenedor-tarjetas-otras {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #contenedor-tarjetas-otras {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-grafico img {
+    max-width: 100%; 
+  }
+
+  .boton {
+    padding: 10px 15px;
+    font-size: 14px; 
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .titulo {
+    font-size: 1.5em;
+  }
+
+  .tarjeta {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Movil */
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 1.25em;
+    text-align: center;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .tarjeta {
+    width: 100%;
+    height: auto;
+  }
+
+  .contenedor-grafico {
+    padding: 1em;
+  }
+}
+
+/*Tablet */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  #boton-cambio-modo {
+    position: relative;
+    left: 0;
+    margin-top: 10px;
+  }
+
+  .contenedor {
+    padding: 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  #boton-cambio-modo {
+    position: relative;
+    left: 0;
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+
+
+  .contenedor {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .menu {
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .menu li {
+    margin: 0.5em 0;
+  }
+
+  #boton-cambio-modo {
+    font-size: 1.3em;
+  }
+}
+
+/* Movil */
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 10px;
+    width: 90%;
+  }
+
+  header {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  #boton-cambio-modo {
+    font-size: 1.2em;
+    position: static;
+    margin-top: 5px;
+  }
+}
+
+
+/*PAGINA HISTORICO*/
+/* Tablets*/
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1em;
+    padding: 2em;
+  }
+
+  .grid h2 {
+    font-size: 1.8em;
+  }
+
+  .grid-card {
+    padding: 1em;
+  }
+
+  .grafico {
+    max-width: 100%;
+  }
+}
+
+/* Movil*/
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; 
+    gap: 1em;
+    padding: 1em;
+  }
+
+  .historico {
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .grid h2 {
+    font-size: 1.5em;
+    margin-block: 0.5em;
+  }
+
+  .grid-card {
+    padding: 0.8em;
+    font-size: 1em;
+  }
+
+  .grid-card .price-icon i {
+    font-size: 1.2em;
+  }
+
+  .grafico {
+    max-width: 100%;
+    padding: 0.5em;
+  }
+}
+
+
+/*Form Contacto*/
+
+@media (max-width: 768px) {
+  .contenedor-formulario {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .form-item button {
+    font-size: 0.9rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-formulario {
+    padding: 10px; 
+  }
+
+  .form-item input,
+  .form-item textarea {
+    padding: 6px;
+  }
+
+  .form-item button {
+    padding: 8px 10px;
+  }
 }
