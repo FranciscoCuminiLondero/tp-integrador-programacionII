@@ -1,22 +1,41 @@
-const form = document.getElementById('formulario-contacto');
+const form = document.getElementById("contacto");
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault(); // Evitar el envío del formulario por defecto
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-  // Obtener los valores de los campos
-  const nombre = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const mensaje = document.getElementById('message').value;
+  const nombre = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const mensaje = document.getElementById("message").value;
 
-  // Validar los campos (opcional, ya que 'required' ya lo hace)
-  if (nombre === '' || email === '' || mensaje === '') {
-    alert('Por favor, completa todos los campos.');
+  if (nombre === "" || email === "" || mensaje === "") {
+    alert("Por favor, completa todos los campos.");
     return;
   }
 
-  // Mostrar los datos ingresados (puedes hacer otra cosa, como enviar a un servidor)
-  alert(`Nombre: ${nombre}\nCorreo: ${email}\nMensaje: ${mensaje}`);
+  try {
+    const response = await fetch("http://127.0.0.1:5000/enviar-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: nombre,
+        email: email,
+        message: mensaje,
+      }),
+    });
 
-  // Limpiar el formulario
+    if (response.ok) {
+      console.log("¡Correo enviado exitosamente!");
+      alert("Correo enviado exitosamente.");
+    } else {
+      console.error("Error al enviar el correo:", response.status);
+      alert("Error al enviar el correo.");
+    }
+  } catch (error) {
+    console.error("Error en la solicitud:", error);
+    alert("Hubo un problema al intentar enviar el correo.");
+  }
+
   form.reset();
 });
