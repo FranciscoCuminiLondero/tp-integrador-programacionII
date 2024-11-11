@@ -1,3 +1,27 @@
+fetch("http://127.0.0.1:5000/dolares")
+  .then((response) => response.json())
+  .then((data) => {
+    const resumenDiv = document.getElementById("cotizaciones");
+
+    const resumenHTML = data
+      .map((item) => {
+        const { nombre, compra, venta } = item;
+        return `
+            <div>
+                <h3>${nombre}</h3>
+                <p>Compra: ${compra}</p>
+                <p>Venta: ${venta}</p>
+            </div>
+            <hr>
+        `;
+      })
+      .join("");
+    resumenDiv.innerHTML = resumenHTML;
+  })
+  .catch((error) => {
+    console.error("Error al obtener los datos:", error);
+  });
+
 const form = document.getElementById("contacto");
 
 form.addEventListener("submit", async function (event) {
@@ -6,6 +30,14 @@ form.addEventListener("submit", async function (event) {
   const nombre = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const mensaje = document.getElementById("message").value;
+  const cotizaciones = Array.from(document.querySelectorAll("#cotizaciones div"))
+    .map((div) => {
+      const nombre = div.querySelector("h3").textContent;
+      const compra = div.querySelector("p:nth-of-type(1)").textContent;
+      const venta = div.querySelector("p:nth-of-type(2)").textContent;
+      return `${nombre}: ${compra}, ${venta}`;
+    })
+    .join("\n");
 
   if (nombre === "" || email === "" || mensaje === "") {
     alert("Por favor, completa todos los campos.");
@@ -22,6 +54,7 @@ form.addEventListener("submit", async function (event) {
         name: nombre,
         email: email,
         message: mensaje,
+        cotizaciones: cotizaciones,
       }),
     });
 

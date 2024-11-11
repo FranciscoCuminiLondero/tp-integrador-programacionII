@@ -45,8 +45,8 @@ def get_dolares():
 
         data = response.json()
 
-        dolares = [Dolar(dolar["nombre"], dolar["compra"], dolar["venta"],
-                         dolar["fechaActualizacion"]) for dolar in data]
+        dolares = [Dolar(d["nombre"], d["compra"], d["venta"],
+                         d["fechaActualizacion"]) for d in data]
 
         return jsonify([dolar.to_dict() for dolar in dolares])
 
@@ -62,7 +62,10 @@ def get_cotizaciones():
 
         data = response.json()
 
-        return jsonify(data)
+        dolares = [Dolar(d["nombre"], d["compra"], d["venta"],
+                         d["fechaActualizacion"]) for d in data]
+
+        return jsonify([dolar.to_dict() for dolar in dolares])
 
     except requests.RequestException as e:
         return jsonify({"error": "Error al obtener los datos de la API"}), 500
@@ -89,6 +92,7 @@ def send_email():
     name = data.get('name')
     email = data.get('email')
     message = data.get('message')
+    cotizaciones = data.get('cotizaciones')
 
     emailjs_data = {
         "service_id": "service_0y3uksv",
@@ -98,6 +102,7 @@ def send_email():
             "from_name": name,
             "email": email,
             "message": message,
+            "cotizaciones": cotizaciones
         }
     }
 
