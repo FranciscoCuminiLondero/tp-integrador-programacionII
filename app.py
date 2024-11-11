@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+# from flask_cors import CORS
 import requests
 import json
 
@@ -21,7 +21,7 @@ class Dolar:
 
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 dolar_api = 'https://dolarapi.com/v1/'
 argentina_datos = 'https://api.argentinadatos.com/v1/cotizaciones/dolares/'
@@ -100,9 +100,9 @@ def send_email():
         "user_id": "fll3HbyLqGOGoNpXf",
         "template_params": {
             "from_name": name,
-            "email": email,
             "message": message,
-            "cotizaciones": cotizaciones
+            "cotizaciones": cotizaciones,
+            "to_email": email
         }
     }
 
