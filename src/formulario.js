@@ -31,7 +31,7 @@ form.addEventListener('submit', async function (event) {
   const mensaje = document.getElementById('message').value;
   const cotizaciones = Array.from(document.querySelectorAll('#cotizaciones div'))
     .map((div) => {
-      const nombre = div.querySelector('h3').textContent;
+      const nombre = div.querySelector('h4').textContent;
       const compra = div.querySelector('p:nth-of-type(1)').textContent;
       const venta = div.querySelector('p:nth-of-type(2)').textContent;
       return `${nombre}: ${compra}, ${venta}`;
