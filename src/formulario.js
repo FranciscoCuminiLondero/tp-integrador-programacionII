@@ -8,11 +8,10 @@ fetch('http://127.0.0.1:5000/dolares')
         const { nombre, compra, venta } = item;
         return `
             <div>
-                <h3>${nombre}</h3>
+                <h4>${nombre}</h4>
                 <p>Compra: ${compra}</p>
                 <p>Venta: ${venta}</p>
-            </div>
-            <hr>
+            </div>  
         `;
       })
       .join('');
@@ -71,4 +70,19 @@ form.addEventListener('submit', async function (event) {
   }
 
   form.reset();
+});
+
+const verCotizaciones = document.getElementById('ver-cotizaciones');
+verCotizaciones.addEventListener('click', () => {
+  const cotizacionesOculto = document.getElementById('cotizaciones');
+
+  let boton = document.getElementById('ver-cotizaciones');
+
+  if (cotizacionesOculto.style.display === 'none' || cotizacionesOculto.style.display === '') {
+    cotizacionesOculto.style.display = 'grid';
+    boton.textContent = 'Cerrar cotizaciones';
+  } else {
+    cotizacionesOculto.style.display = 'none';
+    boton.textContent = 'Ver cotizaciones';
+  }
 });

@@ -21,7 +21,7 @@
                 <li><a href="./historico.html">Histórico</a></li>
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
-            <div>
+            <div class="contenedor-boton">
                 <i id="boton-cambio-modo" class="fa-solid fa-moon"></i>
             </div>
         </nav>
@@ -33,190 +33,200 @@
             <h1 class="historico">HISTORICO</h1>
         </div>
         <!-- Inicio Grid Section Dolar -->
-        <section class="grid">
+        <section class="historicos">
             <h2>DOLAR OFICIAL</h2>
-            <div class="grid-tit">
-                <canvas id="chart-oficial" class="grafico" style="width:100%;max-width:1200px"></canvas>
+            <div class="historicos-grafico">
+                <canvas id="chart-oficial" class="grafico"></canvas>
             </div>
-            <div class="grid-card grid-may-cot-1 grid-oficial-may-cot-1">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
-                    <p class="date">vir, 6 de septiembre</p>
+            <div class="grid">
+
+                <div class="grid-card grid-may-cot-1 grid-oficial-may-cot-1">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
+                <div class="grid-card grid-may-cot-2 grid-oficial-may-cot-2">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Compra</h5>
+                        <p class="date">lun, 23 de septimebre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="grid-card grid-may-cot-2 grid-oficial-may-cot-2">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Compra</h5>
-                    <p class="date">lun, 23 de septimebre</p>
+                <div class="grid-card grid-may-pro grid-oficial-may-pro">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-may-pro grid-oficial-may-pro">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-p-pro grid-oficial-p-pro">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
+                <div class="grid-card grid-p-pro grid-oficial-p-pro">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="grid">
+        <section class="historicos">
             <h2>DOLAR BLUE</h2>
-            <div class="grid-tit">
-                <canvas id="chart-blue" class="grafico" style="width:100%;max-width:1200px"></canvas>
+            <div class="historicos-grafico">
+                <canvas id="chart-blue" class="grafico"></canvas>
             </div>
-            <div class="grid-card grid-may-cot-1 grid-blue-may-cot-1">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
-                    <p class="date">vir, 6 de septiembre</p>
+            <div class="grid">
+                <div class="grid-card grid-may-cot-1 grid-blue-may-cot-1">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
+                <div class="grid-card grid-may-cot-2 grid-blue-may-cot-2">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Compra</h5>
+                        <p class="date">lun, 23 de septimebre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="grid-card grid-may-cot-2 grid-blue-may-cot-2">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Compra</h5>
-                    <p class="date">lun, 23 de septimebre</p>
+                <div class="grid-card grid-may-pro grid-blue-may-pro">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-may-pro grid-blue-may-pro">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-p-pro grid-blue-p-pro">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
+                <div class="grid-card grid-p-pro grid-blue-p-pro">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="grid">
+        <section class="historicos">
             <h2>DOLAR BOLSA</h2>
-            <div class="grid-tit">
-                <canvas id="chart-bolsa" class="grafico" style="width:100%;max-width:1200px"></canvas>
+            <div class="historicos-grafico">
+                <canvas id="chart-bolsa" class="grafico"></canvas>
             </div>
-            <div class="grid-card grid-may-cot-1 grid-bolsa-may-cot-1">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
-                    <p class="date">vir, 6 de septiembre</p>
+            <div class="grid">
+                <div class="grid-card grid-may-cot-1 grid-bolsa-may-cot-1">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
+                <div class="grid-card grid-may-cot-2 grid-bolsa-may-cot-2">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Compra</h5>
+                        <p class="date">lun, 23 de septimebre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="grid-card grid-may-cot-2 grid-bolsa-may-cot-2">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Compra</h5>
-                    <p class="date">lun, 23 de septimebre</p>
+                <div class="grid-card grid-may-pro grid-bolsa-may-pro">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-may-pro grid-bolsa-may-pro">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-p-pro grid-bolsa-p-pro">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
+                <div class="grid-card grid-p-pro grid-bolsa-p-pro">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="grid">
+        <section class="historicos">
             <h2>DOLAR CRIPTO</h2>
-            <div class="grid-tit">
+            <div class="historicos-grafico">
                 <canvas id="chart-cripto" class="grafico" style="width:100%;max-width:1200px"></canvas>
             </div>
-            <div class="grid-card grid-may-cot-1 grid-cripto-may-cot-1">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
-                    <p class="date">vir, 6 de septiembre</p>
+            <div class="grid">
+
+                <div class="grid-card grid-may-cot-1 grid-cripto-may-cot-1">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Compra</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
+                <div class="grid-card grid-may-cot-2 grid-cripto-may-cot-2">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Compra</h5>
+                        <p class="date">lun, 23 de septimebre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="grid-card grid-may-cot-2 grid-cripto-may-cot-2">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Compra</h5>
-                    <p class="date">lun, 23 de septimebre</p>
+                <div class="grid-card grid-may-pro grid-cripto-may-pro">
+                    <div class="header">
+                        <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                 </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-may-pro grid-cripto-may-pro">
-                <div class="header">
-                    <h5 class="title">Mayor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-up"></i>
-                </div>
-            </div>
-            <div class="grid-card grid-p-pro grid-cripto-p-pro">
-                <div class="header">
-                    <h5 class="title">Menor Cotizacion Mes - Venta</h5>
-                    <p class="date">vir, 6 de septiembre</p>
-                </div>
-                <div class="price-icon">
-                    <p class="precio"></p>
-                    <i class="fa-solid fa-thumbs-down"></i>
+                <div class="grid-card grid-p-pro grid-cripto-p-pro">
+                    <div class="header">
+                        <h5 class="title">Menor Cotizacion Mes - Venta</h5>
+                        <p class="date">vir, 6 de septiembre</p>
+                    </div>
+                    <div class="price-icon">
+                        <p class="precio"></p>
+                        <i class="fa-solid fa-thumbs-down"></i>
+                    </div>
                 </div>
             </div>
         </section>

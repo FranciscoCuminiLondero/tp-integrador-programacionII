@@ -24,7 +24,7 @@ app = Flask(__name__)
 CORS(app)
 
 dolar_api = 'https://dolarapi.com/v1/'
-argentina_datos = 'https://api.argentinadatos.com/v1/cotizaciones/dolares'
+argentina_datos = 'https://api.argentinadatos.com/v1/cotizaciones/dolares/'
 
 
 @app.route('/')
@@ -74,7 +74,7 @@ def get_cotizaciones():
 @app.route('/historico', methods=['GET'])
 def get_historico():
     try:
-        response = requests.get(f'{argentina_datos}oficial')
+        response = requests.get(f'{argentina_datos}')
         response.raise_for_status()
 
         data = response.json()
@@ -100,9 +100,9 @@ def send_email():
         "user_id": "fll3HbyLqGOGoNpXf",
         "template_params": {
             "from_name": name,
-            "email": email,
             "message": message,
-            "cotizaciones": cotizaciones
+            "cotizaciones": cotizaciones,
+            "to_email": email
         }
     }
 
