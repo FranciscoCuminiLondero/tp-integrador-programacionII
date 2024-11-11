@@ -19,7 +19,7 @@
                 <li><a href="./historico.html">Histórico</a></li>
                 <li><a href="./contacto.html">Contacto</a></li>
             </ul>
-            <div>
+            <div class="contenedor-boton">
                 <i id="boton-cambio-modo" class="fa-solid fa-moon"></i>
             </div>
         </nav>
@@ -27,9 +27,9 @@
     <!-- FIN HEADER -->
 
     <main>
-
         <div class="contenedor-formulario">
             <form id="contacto">
+                <h1 class="contacto-titulo">CONTACTO</h1>
                 <div class="form-item">
                     <label for="name">Nombre:</label>
                     <input type="text" id="name" required>
@@ -42,10 +42,12 @@
                     <label for="message">Mensaje:</label>
                     <textarea id="message" rows="5" required></textarea>
                 </div>
-                <div class="form-item" id="cotizaciones" style="font-size: 10px;display: none;">
-                    
-                </div>                
-                <div class="form-item">
+
+                <div class="form-item" id="cotizaciones">
+                </div>
+
+                <div class="form-item btns">
+                    <button type="button" class="btn-secondary" id="ver-cotizaciones">Ver cotizaciones</button>
                     <button type="submit">Enviar</button>
                 </div>
 

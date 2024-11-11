@@ -74,7 +74,7 @@ def get_cotizaciones():
 @app.route('/historico', methods=['GET'])
 def get_historico():
     try:
-        response = requests.get(f'{argentina_datos}oficial')
+        response = requests.get(f'{argentina_datos}')
         response.raise_for_status()
 
         data = response.json()

@@ -1,54 +1,53 @@
-fetch("http://127.0.0.1:5000/dolares")
+fetch('http://127.0.0.1:5000/dolares')
   .then((response) => response.json())
   .then((data) => {
-    const resumenDiv = document.getElementById("cotizaciones");
+    const resumenDiv = document.getElementById('cotizaciones');
 
     const resumenHTML = data
       .map((item) => {
         const { nombre, compra, venta } = item;
         return `
             <div>
-                <h3>${nombre}</h3>
+                <h4>${nombre}</h4>
                 <p>Compra: ${compra}</p>
                 <p>Venta: ${venta}</p>
-            </div>
-            <hr>
+            </div>  
         `;
       })
-      .join("");
+      .join('');
     resumenDiv.innerHTML = resumenHTML;
   })
   .catch((error) => {
-    console.error("Error al obtener los datos:", error);
+    console.error('Error al obtener los datos:', error);
   });
 
-const form = document.getElementById("contacto");
+const form = document.getElementById('contacto');
 
-form.addEventListener("submit", async function (event) {
+form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
-  const nombre = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const mensaje = document.getElementById("message").value;
-  const cotizaciones = Array.from(document.querySelectorAll("#cotizaciones div"))
+  const nombre = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const mensaje = document.getElementById('message').value;
+  const cotizaciones = Array.from(document.querySelectorAll('#cotizaciones div'))
     .map((div) => {
-      const nombre = div.querySelector("h3").textContent;
-      const compra = div.querySelector("p:nth-of-type(1)").textContent;
-      const venta = div.querySelector("p:nth-of-type(2)").textContent;
+      const nombre = div.querySelector('h3').textContent;
+      const compra = div.querySelector('p:nth-of-type(1)').textContent;
+      const venta = div.querySelector('p:nth-of-type(2)').textContent;
       return `${nombre}: ${compra}, ${venta}`;
     })
-    .join("\n");
+    .join('\n');
 
-  if (nombre === "" || email === "" || mensaje === "") {
-    alert("Por favor, completa todos los campos.");
+  if (nombre === '' || email === '' || mensaje === '') {
+    alert('Por favor, completa todos los campos.');
     return;
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/enviar-email", {
-      method: "POST",
+    const response = await fetch('http://127.0.0.1:5000/enviar-email', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: nombre,
@@ -59,16 +58,31 @@ form.addEventListener("submit", async function (event) {
     });
 
     if (response.ok) {
-      console.log("¡Correo enviado exitosamente!");
-      alert("Correo enviado exitosamente.");
+      console.log('¡Correo enviado exitosamente!');
+      alert('Correo enviado exitosamente.');
     } else {
-      console.error("Error al enviar el correo:", response.status);
-      alert("Error al enviar el correo.");
+      console.error('Error al enviar el correo:', response.status);
+      alert('Error al enviar el correo.');
     }
   } catch (error) {
-    console.error("Error en la solicitud:", error);
-    alert("Hubo un problema al intentar enviar el correo.");
+    console.error('Error en la solicitud:', error);
+    alert('Hubo un problema al intentar enviar el correo.');
   }
 
   form.reset();
+});
+
+const verCotizaciones = document.getElementById('ver-cotizaciones');
+verCotizaciones.addEventListener('click', () => {
+  const cotizacionesOculto = document.getElementById('cotizaciones');
+
+  let boton = document.getElementById('ver-cotizaciones');
+
+  if (cotizacionesOculto.style.display === 'none' || cotizacionesOculto.style.display === '') {
+    cotizacionesOculto.style.display = 'grid';
+    boton.textContent = 'Cerrar cotizaciones';
+  } else {
+    cotizacionesOculto.style.display = 'none';
+    boton.textContent = 'Ver cotizaciones';
+  }
 });

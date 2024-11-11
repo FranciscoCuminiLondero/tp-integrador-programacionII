@@ -11,6 +11,7 @@
 :root {
   --background-color: #f5f5f5;
   --color-principal: #1a73e8;
+  --color-principal-hover: #0c3365;
   --color-secundario: #1e1e1e;
   --color-gris: #d9d9d9;
 
@@ -55,6 +56,12 @@ body.dark {
   padding: 20px;
 }
 
+.contenedor-boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Header - Encabezado*/
 
 header {
@@ -71,9 +78,13 @@ header {
 
 nav {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 5rem;
 }
 
 #boton-cambio-modo {
+  width: 10%;
   height: 60px;
   width: 60px;
   line-height: 60px;
@@ -81,7 +92,6 @@ nav {
   font-size: 1.5em;
   cursor: pointer;
   text-align: center;
-  position: relative;
   left: 10em;
 }
 
@@ -122,6 +132,8 @@ nav {
 
 .menu {
   display: flex;
+  width: 90%;
+  justify-content: center;
   flex-direction: row;
   text-align: center;
   margin: 10px;
@@ -137,7 +149,6 @@ nav {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--texto-color-secundario);
-  padding: 2rem;
 }
 
 .menu a:hover {
@@ -206,6 +217,7 @@ nav {
   height: 200px;
   font-size: 1.25rem;
   box-shadow: var(--sombra-cajas);
+  transition: transform 3s;
 }
 
 .tipo-moneda {
@@ -221,10 +233,6 @@ nav {
 .tipo-precio {
   font-size: 1rem;
   opacity: 75%;
-}
-
-.tarjeta {
-  transition: transform 3s;
 }
 
 .tarjeta:hover {
@@ -371,27 +379,31 @@ PÁGINA HISTÓRICO
 */
 
 .historico {
-  font-size: 3.5em;
+  font-size: 2rem;
   font-weight: 700;
+  color: var(--color-principal);
   text-shadow: var(--sombra-texto);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto, repeat(4, 1fr);
-  gap: 1em;
+.historicos {
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-principal);
   border-radius: 50px;
   max-width: 1200px;
   margin: 1em auto;
-  padding: 3em;
+  padding: 2em;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.grid h2 {
+.historicos-grafico {
+  width: 100%;
+  max-width: 650px;
+}
+
+.historicos h2 {
   grid-column: 1/5;
   text-align: center;
   text-shadow: var(--sombra-texto);
@@ -401,19 +413,22 @@ PÁGINA HISTÓRICO
   color: var(--background-color);
 }
 
-.grid-tit {
-  grid-column: 1/5;
-  grid-row: 2/3;
-  padding: 30px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
 }
 
 .grid-card {
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
   box-shadow: var(--sombra-cajas);
   background-color: var(--background-color);
   border-radius: 25px;
+  gap: 1rem;
 }
 
 .grid-card .header {
@@ -424,8 +439,9 @@ PÁGINA HISTÓRICO
 }
 
 .grid-card .price-icon {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -464,34 +480,22 @@ PÁGINA HISTÓRICO
 }
 
 .grid-may-cot-1 {
-  grid-column: 1/2;
-  grid-row: 3/5;
   font-size: 25px;
-  padding: 30px;
   margin-top: 15px;
 }
 
 .grid-may-cot-2 {
-  grid-column: 2/3;
-  grid-row: 3/5;
   font-size: 25px;
-  padding: 30px;
   margin-top: 15px;
 }
 
 .grid-may-pro {
-  grid-column: 3/4;
-  grid-row: 3/5;
   font-size: 25px;
-  padding: 30px;
   margin-top: 15px;
 }
 
 .grid-p-pro {
-  grid-column: 4/5;
-  grid-row: 3/5;
   font-size: 25px;
-  padding: 30px;
   margin-top: 15px;
 }
 
@@ -507,15 +511,21 @@ PÁGINA CONTACTO
 ------
 */
 
+.contacto-titulo {
+  font-size: 1.75em;
+  font-weight: 900;
+  color: var(--color-principal);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
 .contenedor-formulario {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+  max-width: 500px;
+  margin: 2em auto;
+  padding: 3em 2em;
   border-radius: 5px;
   background-color: #f9f9f9;
-  margin-bottom: 25px;
-  margin-top: 25px;
+  box-shadow: var(--sombra-cajas);
 }
 .form-item {
   margin-bottom: 15px;
@@ -523,6 +533,8 @@ PÁGINA CONTACTO
 .form-item label {
   display: block;
   margin-bottom: 5px;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
 }
 .form-item input,
 .form-item textarea {
@@ -541,245 +553,165 @@ PÁGINA CONTACTO
 }
 
 .form-item button:hover {
-  background-color: #e40a19; /* Cambia el color del botón al hacer hover */
+  background-color: var(--color-principal-hover);
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+}
+
+.btn-secondary {
+  background-color: var(--color-secundario) !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-secondary-color) !important;
+}
+#cotizaciones {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  font-size: 0.75em;
+  background-color: var(--color-gris);
+  border-radius: 25px;
+  box-shadow: var(--sombra-cajas);
 }
 
 /* MEDIA QUERY - ADAPTABILIDAD A DISPOSITIVOS  */
-/*INDEX*/
-@media (max-width: 768px) {
-  .menu {
-    flex-direction: column;
-  }
 
-  .menu li {
-    margin: 0.5em 0;
-  }
-}
-
-@media (max-width: 1024px) {
-  #contenedor-tarjetas {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media (max-width: 768px) {
-  #contenedor-tarjetas {
-    grid-template-columns: 1fr; 
-  }
-}
-
-
-@media (max-width: 1024px) {
-  #contenedor-tarjetas-otras {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  #contenedor-tarjetas-otras {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .contenedor-grafico img {
-    max-width: 100%; 
-  }
-
-  .boton {
-    padding: 10px 15px;
-    font-size: 14px; 
-  }
-}
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .titulo {
-    font-size: 1.5em;
-  }
-
-  .tarjeta {
-    width: 150px;
-    height: 150px;
-  }
-}
-
-/* Movil */
-@media (max-width: 768px) {
-  .titulo {
-    font-size: 1.25em;
-    text-align: center;
-  }
-
-  .menu {
-    flex-direction: column;
-  }
-
-  .tarjeta {
+/* Movil pequeño (max-width: 480px) */
+@media (max-width: 480px) {
+  .contenedor {
     width: 100%;
-    height: auto;
   }
-
-  .contenedor-grafico {
-    padding: 1em;
-  }
-}
-
-/*Tablet */
-@media (max-width: 1024px) {
   header {
-    flex-direction: column;
-    align-items: center;
     padding: 10px;
   }
-
-  #boton-cambio-modo {
-    position: relative;
-    left: 0;
-    margin-top: 10px;
-  }
-
-  .contenedor {
+  .contenedor-formulario {
     padding: 10px;
+  }
+  .form-item input,
+  .form-item textarea {
+    padding: 6px;
+  }
+  .form-item button {
+    padding: 8px 10px;
   }
 }
 
-
+/* Movil (max-width: 768px) */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
+  nav {
+    flex-direction: column-reverse;
     align-items: center;
-    padding: 15px;
+    justify-content: center;
   }
-
-  #boton-cambio-modo {
-    position: relative;
-    left: 0;
-    margin-top: 10px;
-    font-size: 1.2em;
-  }
-
-
-  .contenedor {
-    padding: 15px;
-    width: 90%;
-  }
-
   .menu {
     flex-direction: column;
     text-align: center;
     margin: 10px 0;
   }
-
   .menu li {
     margin: 0.5em 0;
   }
-
-  #boton-cambio-modo {
-    font-size: 1.3em;
+  .boton {
+    padding: 10px 15px;
+    font-size: 14px;
   }
-}
-
-/* Movil */
-@media (max-width: 480px) {
-  .contenedor {
-    padding: 10px;
-    width: 90%;
+  .titulo {
+    font-size: 1.25em;
+    text-align: center;
   }
-
-  header {
-    padding: 10px;
-    flex-direction: column;
+  .tarjeta {
+    width: 75%;
+    align-items: center;
+    text-align: center;
   }
-
-  #boton-cambio-modo {
-    font-size: 1.2em;
-    position: static;
-    margin-top: 5px;
-  }
-}
-
-
-/*PAGINA HISTORICO*/
-/* Tablets*/
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 1em;
-    padding: 2em;
-  }
-
-  .grid h2 {
-    font-size: 1.8em;
-  }
-
-  .grid-card {
-    padding: 1em;
-  }
-
+  .contenedor-grafico img,
   .grafico {
     max-width: 100%;
   }
-}
-
-/* Movil*/
-@media (max-width: 768px) {
+  .contenedor-grafico {
+    padding: 1em;
+  }
+  .titulos {
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+  }
+  #boton-cambio-modo {
+    margin-top: 5px;
+  }
+  #contenedor-tarjetas,
+  #contenedor-tarjetas-otras {
+    grid-template-columns: 1fr;
+  }
+  #fecha {
+    padding-block: 1em;
+  }
+  /* Historico */
   .grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
     gap: 1em;
     padding: 1em;
   }
-
   .historico {
     font-size: 2em;
     text-align: center;
   }
-
   .grid h2 {
     font-size: 1.5em;
     margin-block: 0.5em;
   }
-
   .grid-card {
     padding: 0.8em;
     font-size: 1em;
   }
-
   .grid-card .price-icon i {
     font-size: 1.2em;
   }
 
-  .grafico {
-    max-width: 100%;
-    padding: 0.5em;
-  }
-}
-
-
-/*Form Contacto*/
-
-@media (max-width: 768px) {
+  /* Contacto */
   .contenedor-formulario {
     width: 90%;
     padding: 15px;
   }
-
   .form-item button {
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 480px) {
-  .contenedor-formulario {
-    padding: 10px; 
+/* Tablet (exactamente en 1024px) */
+@media (width: 1024px) {
+  /* Historico */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    padding: 2em;
+  }
+  .grid h2 {
+    font-size: 1.8em;
+  }
+  .grid-card {
+    padding: 1em;
   }
 
-  .form-item input,
-  .form-item textarea {
-    padding: 6px;
+  /* Inicio */
+  .titulo {
+    font-size: 1.5em;
   }
-
-  .form-item button {
-    padding: 8px 10px;
+  #contenedor-tarjetas,
+  #contenedor-tarjetas-otras {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tarjeta {
+    width: 150px;
+    height: 150px;
+  }
+  .grafico {
+    max-width: 100%;
   }
 }
