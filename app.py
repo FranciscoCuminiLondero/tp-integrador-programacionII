@@ -1,7 +1,34 @@
 from flask import Flask, jsonify, request
+import sqlite3
 from flask_cors import CORS
 import requests
 import json
+
+app = Flask(__name__)
+CORS(app)
+DATABASE = "correos.db"
+
+
+def connect_db():
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
+def init_db():
+    with connect_db() as conn:
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS correos (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nombre TEXT NOT NULL,
+                email TEXT NOT NULL,
+                mensaje TEXT NOT NULL,
+                cotizaciones TEXT
+            )
+            """
+        )
+        conn.commit()
 
 
 class Dolar:
@@ -19,9 +46,6 @@ class Dolar:
             "fechaActualizacion": self.fechaActualizacion,
         }
 
-
-app = Flask(__name__)
-CORS(app)
 
 dolar_api = 'https://dolarapi.com/v1/'
 argentina_datos = 'https://api.argentinadatos.com/v1/cotizaciones/dolares/'
@@ -123,6 +147,14 @@ def send_email():
         )
 
         if response.status_code == 200:
+            conn = connect_db()
+            conn.execute(
+                "INSERT INTO correos (nombre, email, mensaje, cotizaciones) VALUES (?, ?, ?, ?)",
+                (name, email, message, cotizaciones)
+            )
+            conn.commit()
+            conn.close()
+
             return jsonify({"message": "Correo enviado exitosamente"}), 200
         else:
             return jsonify({"message": "Error al enviar el correo"}), response.status_code
@@ -131,5 +163,14 @@ def send_email():
         return jsonify({"message": "Error en la solicitud a EmailJS", "error": str(error)}), 500
 
 
+@app.route('/historial-emails', methods=['GET'])
+def historial_emails():
+    conn = connect_db()
+    correos = conn.execute("SELECT * FROM correos").fetchall()
+    conn.close()
+    return jsonify([dict(correo) for correo in correos]), 200
+
+
 if __name__ == "__main__":
+    init_db()
     app.run(debug=True)
