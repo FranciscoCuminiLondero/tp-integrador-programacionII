@@ -426,7 +426,7 @@ PÁGINA HISTÓRICO
   justify-content: center;
   padding: 1em;
   box-shadow: var(--sombra-cajas);
-  background-color: var(--background-color);
+  background-color: var(--color-gris);
   border-radius: 25px;
   gap: 1rem;
 }
