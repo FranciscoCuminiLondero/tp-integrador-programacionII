@@ -53,7 +53,21 @@ argentina_datos = 'https://api.argentinadatos.com/v1/cotizaciones/dolares/'
 
 @app.route('/')
 def index():
-    return '<p>Flask is working!</p>'
+    endpoints = [
+        {"path": "/", "descripcion": "Pagina de inicio (GET)"},
+        {"path": "/test", "descripcion": "Endpoint de prueba (GET)"},
+        {"path": "/dolares",
+            "descripcion": "Obtiene el tipo de cambio de diferentes dolares (GET)"},
+        {"path": "/cotizaciones",
+            "descripcion": "Obtiene las cotizaciones actuales (GET)"},
+        {"path": "/historico",
+            "descripcion": "Obtiene datos historicos de cotizaciones (GET)"},
+        {"path": "/enviar-email",
+            "descripcion": "Envia un correo electronico (POST)"},
+        {"path": "/historial-emails",
+            "descripcion": "Obtiene el historial de correos enviados (GET)"}
+    ]
+    return jsonify(endpoints), 200  
 
 
 @app.route('/test', methods=['GET'])
