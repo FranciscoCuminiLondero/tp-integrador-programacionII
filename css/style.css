@@ -339,10 +339,10 @@ nav {
   text-align: center;
   color: var(--text-secondary-color);
   background: linear-gradient(71deg, #1a73e8 64.09%, #0e4182 128.18%);
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 100%; */
 }
 
 .integrantes-utn {
